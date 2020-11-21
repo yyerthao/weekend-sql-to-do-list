@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(136, 163, 186);
+    background-color: rgba(210, 210, 215, 0.961);
     margin: auto;
     width: max-content;
 }
@@ -11,7 +11,10 @@ header {
 
 
 main {
+    background-color: rgb(136, 163, 186);
+    padding: 1rem;
     margin: 1rem;
+    border-radius: 1rem;
 }
 
 
