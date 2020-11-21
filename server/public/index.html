@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,18 +9,28 @@
     <script src="./vendor/jquery.min.js"></script>
     <script src="./script/client.js"></script>
 </head>
+
 <body>
     <main>
         <header>
-            <h1>Mom Check List</h1>
+            <h1>To-Do List</h1>
         </header>
         <form>
-            <section>
+            <input id="input-1" type="text" placeholder="Task" size="70"></input>
+            <button id="btn-submit">Submit Task</button>
+            <div>
+                <h3>Task List</h3>
                 <table>
-
+                    </thead>
+                    <tr>
+                    </tr>
+                    <tbody id="taskLog">
+                        <!-- jquery will fill in rest -->
+                    </tbody>
                 </table>
-            </section>
+            </div>
         </form>
     </main>
 </body>
+
 </html>

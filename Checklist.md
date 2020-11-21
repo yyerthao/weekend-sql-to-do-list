@@ -2,23 +2,26 @@ GOAL: Create an application with a to do list for users to utilize
 
 ### NODE.JS
 [x] - npm init -y
-[] - npm install express
-[] - npm install jquery
-[] - npm install pg
+[x] - npm install express
+[x] - npm install jquery
+[x] - npm install pg
 
 ### DATABASE
-[] - 
-[] - 
-[] - 
-[] - 
+[x] - POSTICO, create table
+[x] - create table
+[x] - create database.sql
+
+### SERVER
+[x] - GET - 
+[x] - POST - 
+[x] - PUT - 
+[x] - DELETE - 
 
 ### HTML
-[] - header
-[] - h1
-[] - h2
-[] - table
-[] - 
-
+[x] - header
+[x] - table
+[x] - input form
+[x] - submit button
 
 ### CLIENT
 [] - function clickHandlers
