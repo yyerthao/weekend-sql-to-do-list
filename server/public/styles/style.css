@@ -1,9 +1,21 @@
-body{
+body {
     background-color: rgb(136, 163, 186);
-    margin: auto; 
+    margin: auto;
     width: max-content;
 }
 
 
+header {
+    margin-top: 2rem;
+}
 
+
+main {
+    margin: 1rem;
+}
+
+
+#input-1{
+    width: 30rem;
+}
 
