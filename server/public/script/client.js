@@ -6,7 +6,6 @@ $(document).ready(function () {
     refreshTask();
 });
 
-
 function handleSubmit() {
     console.log('Submit button clicked.');
     let msg = {
@@ -14,7 +13,6 @@ function handleSubmit() {
     }
     addTask(msg);
 }
-
 
 function addTask(taskToAdd) {
     $.ajax({
@@ -29,7 +27,6 @@ function addTask(taskToAdd) {
         alert('Unable to add task at this time. Please try again later.');
     });
 }
-
 
 function deleteTask(event) {
     event.preventDefault();
@@ -54,7 +51,6 @@ function deleteTask(event) {
         })
 }
 
-
 function readTask(event) {
     event.preventDefault();
     // console.log('did a task');
@@ -74,8 +70,6 @@ function readTask(event) {
     })
 }
 
-
-
 function refreshTask() {
     $.ajax({
         type: 'GET',
@@ -87,8 +81,6 @@ function refreshTask() {
         console.log('error in GET', error);
     });
 }
-
-
 
 function renderTasks(tasks) {
     console.log('Rendering task to DOM');

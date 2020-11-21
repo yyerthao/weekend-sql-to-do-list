@@ -36,9 +36,6 @@ router.post('/', (req, res) => {
 });
 
 
-
-
-// LEAVE THIS ALONE FOR NOW
 router.put('/:id', (req, res) => {
     let task = req.body; // task with updated content
     let id = req.params.id; // id of the book to update
@@ -50,7 +47,7 @@ router.put('/:id', (req, res) => {
     } else {
         sqlText = `UPDATE messages SET status='Incomplete' WHERE id=$1;`
     }
-    // TODO - REPLACE BELOW WITH YOUR CODE
+
     pool.query(sqlText, [id])
         .then((result) => {
             res.sendStatus(200);
@@ -68,7 +65,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
     let id = req.params.id;
-    console.log('-------------------- ID:', id) //; 
+    console.log('-------------------- ID:', id);
     let sqlText = `DELETE FROM messages WHERE id=$1;`;
     pool.query(sqlText, [id])
         .then((result) => {
