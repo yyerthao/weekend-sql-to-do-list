@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
+
+
 router.get('/', (req, res) => {
 // select from messages table database will show us an updated list of tasks
     let queryText = 'SELECT * FROM messages ORDER BY "task";';
@@ -14,6 +16,8 @@ router.get('/', (req, res) => {
             res.sendStatus(500);
         });
 });
+
+
 
 
 router.post('/', (req, res) => {
@@ -31,6 +35,9 @@ router.post('/', (req, res) => {
         });
 });
 
+
+
+
 // LEAVE THIS ALONE FOR NOW
 router.put('/:id', (req, res) => {
     let task = req.body; // task with updated content
@@ -38,10 +45,10 @@ router.put('/:id', (req, res) => {
     let sqlText = '';
     console.log(`Updating task ${id} with `, task.status);
     // added conditional 
-    if (task.status === 'Complete') {
+    if (task.status === 'Incomplete') {
         sqlText = `UPDATE messages SET status='Complete' WHERE id=$1;`
     } else {
-        sqlText = `UPDATE books SET status='Incomplete' WHERE id=$1;`
+        sqlText = `UPDATE messages SET status='Incomplete' WHERE id=$1;`
     }
     // TODO - REPLACE BELOW WITH YOUR CODE
     pool.query(sqlText, [id])
@@ -55,9 +62,13 @@ router.put('/:id', (req, res) => {
 });
 
 
+
+
+
+
 router.delete('/:id', (req, res) => {
     let id = req.params.id;
-    console.log('-------- ID:', id)//; 
+    console.log('-------------------- ID:', id) //; 
     let sqlText = `DELETE FROM messages WHERE id=$1;`;
     pool.query(sqlText, [id])
         .then((result) => {

@@ -4,7 +4,6 @@ $(document).ready(function () {
     $('#taskLog').on('click', '.btn-delete', deleteTask);
     $('#taskLog').on('click', '.btn-do', readTask);
     refreshTask();
-    handleSubmit();
 });
 
 
@@ -56,10 +55,11 @@ function deleteTask(event) {
 }
 
 
-function readTask() {
-    console.log('did a task');
-    let tasks = $(this).closest('tr').data('task');
-    console.log(`changing status of ${tasks.task}...`);
+function readTask(event) {
+    event.preventDefault();
+    // console.log('did a task');
+    let tasks = $(this).closest('tr').data('message');
+    console.log(`changing status of ${tasks.message}...`);
     $.ajax({
         method: 'PUT',
         url: `/messages/${tasks.id}`,
@@ -96,12 +96,12 @@ function renderTasks(tasks) {
     // loop through parameter to append to table on DOM
     for (let i = 0; i < tasks.length; i++) {
         let message = tasks[i];
-        let $tr = $(`<tr></tr>`);
+        console.log('--------', message.status);
+        let $tr = $(`<tr class="${message.status}"></tr>`);
         $tr.data('message', message);
         $tr.append(`<td>${message.task}</td>`);
-        $tr.append(`<td>${message.status}</td>`);
         $tr.append(`<td><button class="btn-delete">Delete</button></td>`);
-        if (message.status === 'Complete') {
+        if (message.status === 'Incomplete') {
             $tr.append(`<td><button class="btn-do">Complete</button></td>`);
         } else {
             $tr.append(`<td><button class="btn-do">Mark as Incomplete</button></td>`);
@@ -109,3 +109,4 @@ function renderTasks(tasks) {
         $('#taskLog').append($tr);
     }
 }
+

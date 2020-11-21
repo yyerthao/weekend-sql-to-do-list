@@ -24,44 +24,29 @@ GOAL: Create an application with a to do list for users to utilize
 [x] - submit button
 
 ### CLIENT
-[] - function clickHandlers
-[] - function  handleMessage
+[x] - function clickHandlers
+[x] - function  handleMessage
             - create object with values from input field
             - (ajax post)
-[] - function deleteMessage 
+[x] - function deleteMessage 
             - (ajax delete)
-[] - function updateMessage 
+[x] - function updateMessage 
             - (ajax put)
-[] - function getMessage 
+[x] - function getMessage 
             - (ajax get)
-[] - function renderMessage(messages)
+[x] - function renderMessage(messages)
             - empty div $('#messageLog');
             - loop
-            - let message = messages[i]
-            - let $tr = $(`<tr></tr>`);
-            $tr.data('message', messages);
-            $tr.append(`<td>${}</td>`);
-            $tr.append(`<td>${}</td>`);
-            $tr.append(`<td>${}</td>`);    
-            $tr.append(`<td><button class="btn-send">Send</button></td>`);
-            $tr.append(`<td><button class="btn-delete">Delete</button></td>`);
-            $('#messageLog').append($tr);
+            - 
 
 ### SERVER
-[]   const express = require('express);
-[]  const router=express.Router();
-[]  const pool = require('../modules/message');
+[x]   const express = require('express);
+[x]  const router=express.Router();
+[x]  const pool = require('../modules/message');
 
-[] - router.get // gets all books
-            - `SELECT * FROM messages ORDER BY id;`
-            -             
-[] - router.post
-            - 
-            -        
-[] - router.put
-            - 
-            -        
-[] - router.delete
-            - 
-            -        
+[x] - router.get // gets all books           
+[x] - router.post
+[x] - router.put       
+[x] - router.delete
+  
 
