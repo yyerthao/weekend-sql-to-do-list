@@ -96,7 +96,7 @@ function renderTasks(tasks) {
         if (message.status === 'Incomplete') {
             $tr.append(`<td><button class="btn-do">Complete</button></td>`);
         } else {
-            $tr.append(`<td><button class="btn-do">Mark as Incomplete</button></td>`);
+            $tr.append(`<td><button class="btn-do" id="red">Mark as Incomplete</button></td>`);
         }
         $('#taskLog').append($tr);
     }

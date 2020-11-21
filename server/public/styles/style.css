@@ -14,7 +14,6 @@ main {
     background-color: rgb(136, 163, 186);
     padding: 1rem;
     margin: 1rem;
-    border-radius: 1rem;
 }
 
 
@@ -22,3 +21,7 @@ main {
     width: 30rem;
 }
 
+
+#red{
+    background-color: rgb(243, 143, 106);
+}
