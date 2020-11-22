@@ -1,29 +1,33 @@
-$(document).ready(function () {
-    console.log('jQuery sourced.');
+$(document).ready(function () { // anonymous function: function with no name
+// console.log('jQuery sourced.'); // this let's us know JQ is working, commented out 
+// click handler events for buttons
     $('#btn-submit').on('click', handleSubmit);
     $('#taskLog').on('click', '.btn-delete', deleteTask);
     $('#taskLog').on('click', '.btn-do', readTask);
+// running function with ajax-get call to update our data upon refresh
     refreshTask();
 });
 
 // function to grab input form values
 function handleSubmit() {
     console.log('Submit button clicked.');
-// storing values into an object
+// store values into an object
     let msg = {
         task: $('#input-1').val()
     }
-// invoking addTask function, which will take object
+// invoke addTask function, which will take object
 // and send it to server POST 
     addTask(msg);
 }
 
+// ajax post grabs our object of data and sends it to server
+// after server sends it to our database, THEN it comes back here as a response
 function addTask(taskToAdd) {
     $.ajax({
         type: 'POST',
         url: '/messages',
         data: taskToAdd,
-    }).then(function (response) { 
+    }).then(function (response) {
         console.log('Response from server.', response);
         refreshTask();
     }).catch(function (error) {
@@ -94,38 +98,41 @@ function refreshTask() {
 function renderTasks(tasks) {
     console.log('Rendering task to DOM');
     $('#taskLog').empty();
- // loop through parameter to append to table on DOM
+    // loop through parameter to append to table on DOM
     for (let i = 0; i < tasks.length; i++) {
-// storing all values of into variable
+    // storing all values of into variable
         let message = tasks[i];
         console.log('--------', message.status); // ensuring our status shows on console for testing purposes
-// storing our tr with a class of ${message.status} into an array
-// task is another class added to this tr for styling purposes
+    // storing our tr with a class of ${message.status} into an array
+     // task is another class added to this tr for styling purposes
         let $tr = $(`<tr class="${message.status} task"></tr>`);
-// creating btnText as an empty string so we can manipulate this upon clicking button and depending on 
-// the status coming back from database
+    // creating btnText as an empty string so we can manipulate this upon clicking button
+    // depending on the status coming back from database (reliant on conditional create on server side)?
         let btnText = '';
-// conditional, if status is equal to 'Incomplete'
-// btnText must say 'Complete, otherwise button text must say 'Incomplete'
+    // create conditional, if status is equal to 'Incomplete'
+    // btnText must say 'Complete, otherwise button text must say 'Incomplete'
         if (message.status === 'Incomplete') {
             btnText = 'Complete';
         } else {
             btnText = 'Incomplete'
         }
-// data.() allows us to attach data of any sort to DOM
-// if utilizing this tr, must use message. 
+    // data.() allows us to attach data of any sort to DOM
+    // if utilizing this tr, must use message. 
         $tr.data('message', message);
         $tr.append(`<td>${message.task}</td>`);
-// appending to tr, a div with td for easier styling.
+    // appending to tr, a div with td for easier styling.
         $tr.append(`
         <div class="buttons">
         <td>
             <button class="btn-delete">Delete</button>
         </td>
-            <td><button class="btn-do ${message.status}">Mark as ${btnText}</button>
-            </td>
+        <td><button class="btn-do ${message.status} task">Mark as ${btnText}</button>
+        </td>
         </div>`);
-// appending to tbody with id taskLog, tr created
+    // appending to tbody, tr created
         $('#taskLog').append($tr);
     }
 }
+
+
+// QUESTION, what is recommended for me to 

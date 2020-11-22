@@ -41,7 +41,7 @@ router.put('/:id', (req, res) => {
     let id = req.params.id; // id of the book to update
     let sqlText = '';
     console.log(`Updating task ${id} with `, task.status);
-    // added conditional 
+    // add conditional
     if (task.status === 'Incomplete') {
         sqlText = `UPDATE messages SET status='Complete' WHERE id=$1;`
     } else {

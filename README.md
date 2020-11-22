@@ -4,50 +4,48 @@
 ![TOP_LANGUAGE](https://img.shields.io/github/languages/top/yyerthao/weekend-sql-to-do-list.svg?style=flat-square)
 
 
-# PROJECT NAME
+## To-Do List Application
 
 ## Description
 
-_Duration: 15 HOURS
+_Duration: 20 HOURS
 
-Application that allows user to input task onto input forms. Buttons are available for user to delete task, mark task as completed (line-through completed tasks will become visible upon clicking 'Mark as Complete' button), or revert task back to incomplete.
-
-To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.heroku.com)
+Application that allows user to input task into input field. Click 'Mark as Complete' button as task is completed. Delete task as necessary. (Task will have a strike-through if 'Mark as Complete' button is clicked). User will have the option to mark task as 'Mark as Incomplete' 
 
 ## Screen Shot
 
-![intro](to-do.png)
+![intro](todo.png)
 
-### Prerequisites
+### Pre-requisites
 
 - [Node.js](https://nodejs.org/en/)
+- [Postgres](https://www.postgresql.org/download/)
+- [Postico] (https://eggerapps.at/postico/) (Recommended to test and run queries)
 
 ## Installation
 
 1. Create a database named `weekend-to-do-app`,
-2. The queries in the `tables.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on [Postgres](https://www.postgresql.org/download/), so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries, 
-3. Open up your editor of choice and run an `npm install`
-4. Run `npm run server` in your terminal
-5. Run `npm run client` in your terminal
-6. The `npm run client` command will open up a new browser tab for you!
+2. The queries in the `database.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on Postgres, so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries 
+3. Inside terminal, run following:
+    * `npm install pg` to install Postgres
+    * `npm install express` to install Express
+    * `npm install jquery` to install Jquery
+5. Run `npm start` after server is created to run application
 
 ## Usage
 
-1. Submit task into input form
+1. Write task into input field
 2. Click submit
-3. Once task is completed, click on button 'Mark as Complete'
-4. If task is not thoroughly completed, revert status of task back to 'Mark as Complete' by clicking on
-button that reads 'Mark as Incomplete'.
-5. Utilize delete button once task is completed
-
+3. Once task is completed, click on button 'Complete'
+4. If task is not thoroughly completed, click button 'Mark as Complete' to change task status back to 'Incomplete'.
+5. Utilize delete button if task needs to be deleted.
 
 ## Built With
 
 * HTML
 * CSS
 * JavaScript
-* Jquery
-* PostgresSQL
+* JQuery
 
 ## License
 ![MIT LICENSE](https://img.shields.io/github/license/yyerthao/weekend-sql-to-do-list)

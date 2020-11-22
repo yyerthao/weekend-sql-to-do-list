@@ -12,10 +12,10 @@ GOAL: Create an application with a to do list for users to utilize
 [x] - create database.sql
 
 ### SERVER
-[x] - GET - 
-[x] - POST - 
-[x] - PUT - 
-[x] - DELETE - 
+[x] - router.get // gets updated tasks           
+[x] - router.post // grabs data, receives it
+[x] - router.put // updates data
+[x] - router.delete // deletes data
 
 ### HTML
 [x] - header
@@ -35,18 +35,14 @@ GOAL: Create an application with a to do list for users to utilize
 [x] - function getMessage 
             - (ajax get)
 [x] - function renderMessage(messages)
-            - empty div $('#messageLog');
+            - empty div $('#taskLog');
             - loop
-            - 
+            - append
 
 ### SERVER
-[x]   const express = require('express);
+[x]  const express = require('express);
 [x]  const router=express.Router();
 [x]  const pool = require('../modules/message');
 
-[x] - router.get // gets all books           
-[x] - router.post
-[x] - router.put       
-[x] - router.delete
-  
+
 

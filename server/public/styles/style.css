@@ -9,7 +9,7 @@ serif;
 
 
 header {
-    margin-top: 2rem;
+    margin-top: 4rem;
     margin-bottom: 1rem;
     text-align: center;
 
@@ -28,6 +28,8 @@ main {
 
 button.Complete {
     background-color: rgb(243, 143, 106);
+    align-self: center;
+
 }
 
 tr.Complete {
@@ -35,21 +37,14 @@ tr.Complete {
 }
 
 .task{
-    display: grid;
-    grid-template-columns: 1fr max-content;
+    text-align: right;
 }
 
 
-
-.buttons{
-    grid-column-start: 2;
-    /* display: block; */
-    align-self: center;
-
-}
 
 h4 {
     padding: 1rem;
+    margin-top: 2rem;
 }
 
 button {
@@ -64,3 +59,9 @@ button {
 p {
     text-align: center;
 }
+
+.buttons{
+    /* grid-column-start: 2;
+    display: block; */
+ align-self: center;  
+} 
