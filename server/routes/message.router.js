@@ -21,12 +21,12 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
-    let newTask = req.body;
-    console.log(`Adding task`, newTask);
-    let queryText = `INSERT INTO messages ("task")
-                   VALUES ($1);`;
-    pool.query(queryText, [newTask.task])
-        .then(result => {
+    let newTask = req.body; // storing object from client into newTask
+    console.log(`Adding task`, newTask); // console logging newTask onto server console
+    let queryText = `INSERT INTO messages ("task") 
+                   VALUES ($1);`;  // query is a request for data
+    pool.query(queryText, [newTask.task]) // communicating to database, a command to insert new value
+        .then(result => { // once database receives data correctly, we receive the updated status
             res.sendStatus(201);
         })
         .catch(error => {

@@ -6,11 +6,15 @@ $(document).ready(function () {
     refreshTask();
 });
 
+// function to grab input form values
 function handleSubmit() {
     console.log('Submit button clicked.');
+// storing values into an object
     let msg = {
         task: $('#input-1').val()
     }
+// invoking addTask function, which will take object
+// and send it to server POST 
     addTask(msg);
 }
 
@@ -19,7 +23,7 @@ function addTask(taskToAdd) {
         type: 'POST',
         url: '/messages',
         data: taskToAdd,
-    }).then(function (response) {
+    }).then(function (response) { 
         console.log('Response from server.', response);
         refreshTask();
     }).catch(function (error) {
@@ -28,16 +32,18 @@ function addTask(taskToAdd) {
     });
 }
 
+// function to delete tr when delete button clicked on
 function deleteTask(event) {
+// because I used form, must utilizie event.preventDefault(); 
     event.preventDefault();
     console.log('Deleting task....');
-    // create variable to store closest tr
+// create variable to store closest tr
     let task = $(this).closest('tr').data('message');
-    // console logging selected task
+// console logging selected task
     console.log('Task selected is:', task);
-    // empty tr we just selected
+// empty tr we just selected
     $(this).closest('tr').empty();
-    // this ajax call deletes the data we pass in to delete on ${task.id}
+// this ajax call deletes the data we pass in to delete on ${task.id}
     $.ajax({
             method: 'DELETE',
             url: `/messages/${task.id}`
@@ -51,9 +57,10 @@ function deleteTask(event) {
         })
 }
 
+// this function updates our data
 function readTask(event) {
     event.preventDefault();
-    // console.log('did a task');
+// console.log('did a task');
     let tasks = $(this).closest('tr').data('message');
     console.log(`changing status of ${tasks.message}...`);
     $.ajax({
@@ -63,13 +70,14 @@ function readTask(event) {
             status: tasks.status
         }
     }).then(function (response) {
-        refreshTask();
+        refreshTask(); // allows us to see most up to date data
     }).catch((error) => {
         console.log('error from db', error);
         res.sendStatus(500);
     })
 }
 
+// function to get data
 function refreshTask() {
     $.ajax({
         type: 'GET',
@@ -82,25 +90,42 @@ function refreshTask() {
     });
 }
 
+// function to render data onto DOM
 function renderTasks(tasks) {
     console.log('Rendering task to DOM');
     $('#taskLog').empty();
-    // loop through parameter to append to table on DOM
+ // loop through parameter to append to table on DOM
     for (let i = 0; i < tasks.length; i++) {
+// storing all values of into variable
         let message = tasks[i];
-        console.log('--------', message.status);
-        let $tr = $(`<tr class="${message.status}"></tr>`);
+        console.log('--------', message.status); // ensuring our status shows on console for testing purposes
+// storing our tr with a class of ${message.status} into an array
+// task is another class added to this tr for styling purposes
+        let $tr = $(`<tr class="${message.status} task"></tr>`);
+// creating btnText as an empty string so we can manipulate this upon clicking button and depending on 
+// the status coming back from database
+        let btnText = '';
+// conditional, if status is equal to 'Incomplete'
+// btnText must say 'Complete, otherwise button text must say 'Incomplete'
+        if (message.status === 'Incomplete') {
+            btnText = 'Complete';
+        } else {
+            btnText = 'Incomplete'
+        }
+// data.() allows us to attach data of any sort to DOM
+// if utilizing this tr, must use message. 
         $tr.data('message', message);
         $tr.append(`<td>${message.task}</td>`);
-        $tr.append(`<td><button class="btn-delete">Delete</button></td>`);
-        if (message.status === 'Incomplete') {
-            $tr.append(`<td><button class="btn-do ${message.status}">Mark as Complete</button></td>`);
-        } else {
-            $tr.append(`<td><button class="btn-do ${message.status}">Mark as Incomplete</button></td>`);
-        }
+// appending to tr, a div with td for easier styling.
+        $tr.append(`
+        <div class="buttons">
+        <td>
+            <button class="btn-delete">Delete</button>
+        </td>
+            <td><button class="btn-do ${message.status}">Mark as ${btnText}</button>
+            </td>
+        </div>`);
+// appending to tbody with id taskLog, tr created
         $('#taskLog').append($tr);
     }
 }
-
-
-// 

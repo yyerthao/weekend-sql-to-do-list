@@ -2,12 +2,17 @@ body {
     background-color: rgba(210, 210, 215, 0.961);
     margin: auto;
     width: max-content;
+font-family: 'Lora',
+serif;
+
 }
 
 
 header {
     margin-top: 2rem;
+    margin-bottom: 1rem;
     text-align: center;
+
 }
 
 main {
@@ -17,27 +22,45 @@ main {
     border-radius: .5rem;
 }
 
-#input-1{
+#input-1 {
     width: 30rem;
 }
 
-button.Complete{
+button.Complete {
     background-color: rgb(243, 143, 106);
 }
 
-tr.Complete{
+tr.Complete {
     text-decoration-line: line-through;
 }
 
-h4{
+.task{
+    display: grid;
+    grid-template-columns: 1fr max-content;
+}
+
+
+
+.buttons{
+    grid-column-start: 2;
+    /* display: block; */
+    align-self: center;
+
+}
+
+h4 {
     padding: 1rem;
 }
 
-button{
+button {
+    border-radius: 0.5rem;
+    margin: auto 0;
+}
+
+#btn-submit {
     border-radius: 0.5rem;
 }
 
-#btn-submit{
-    border-radius: 0.5rem;
+p {
+    text-align: center;
 }
-
