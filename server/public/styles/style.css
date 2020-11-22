@@ -10,7 +10,6 @@ header {
     text-align: center;
 }
 
-
 main {
     background-color: rgb(136, 163, 186);
     padding: 1rem;
@@ -18,28 +17,27 @@ main {
     border-radius: .5rem;
 }
 
-
 #input-1{
     width: 30rem;
 }
 
-
-#red{
+button.Complete{
     background-color: rgb(243, 143, 106);
+}
+
+tr.Complete{
+    text-decoration-line: line-through;
 }
 
 h4{
     padding: 1rem;
 }
 
-.btn-delete{
-    border-radius: 0.5rem;
-}
-
-.btn-do{
+button{
     border-radius: 0.5rem;
 }
 
 #btn-submit{
     border-radius: 0.5rem;
 }
+

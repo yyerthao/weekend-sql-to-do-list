@@ -94,11 +94,13 @@ function renderTasks(tasks) {
         $tr.append(`<td>${message.task}</td>`);
         $tr.append(`<td><button class="btn-delete">Delete</button></td>`);
         if (message.status === 'Incomplete') {
-            $tr.append(`<td><button class="btn-do">Mark as Complete</button></td>`);
+            $tr.append(`<td><button class="btn-do ${message.status}">Mark as Complete</button></td>`);
         } else {
-            $tr.append(`<td><button class="btn-do" id="red">Mark as Incomplete</button></td>`);
+            $tr.append(`<td><button class="btn-do ${message.status}">Mark as Incomplete</button></td>`);
         }
         $('#taskLog').append($tr);
     }
 }
 
+
+// 
