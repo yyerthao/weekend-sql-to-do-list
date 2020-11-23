@@ -135,4 +135,3 @@ function renderTasks(tasks) {
 }
 
 
-// QUESTION, what is recommended for me to 
