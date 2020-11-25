@@ -1,6 +1,7 @@
 const pg = require('pg');
 const Pool = pg.Pool;
 
+// This says how to connect to our database
 let config = {}
 
 if (process.env.DATABASE_URL) {
@@ -9,7 +10,7 @@ config = {
     connectionString: process.env.DATABASE_URL,
     ssl: { rejectUnauthorized: false }
     }
-} else {
+} else { // running locally
     config = {
         database: 'weekend-to-do-app',
         host: 'localhost',

@@ -119,16 +119,16 @@ function renderTasks(tasks) {
     // data.() allows us to attach data of any sort to DOM
     // if utilizing this tr, must use message. 
         $tr.data('message', message);
-        $tr.append(`<td>${message.task}</td>`);
+        $tr.append(`<td class="td-${btnText} wrap">${message.task}</td>`);
     // appending to tr, a div with td for easier styling.
         $tr.append(`
-        <div class="buttons">
         <td>
-            <button class="btn-delete">Delete</button>
-        </td>
-        <td><button class="btn-do ${message.status} task">Mark as ${btnText}</button>
-        </td>
-        </div>`);
+        <div class="buttons">
+                <button class="btn-delete">Delete</button>
+
+                <button class="btn-do ${message.status} task">Mark as ${btnText}</button>
+        </div>
+        </td>`);
     // appending to tbody, tr created
         $('#taskLog').append($tr);
     }
