@@ -7,7 +7,6 @@ serif;
 
 }
 
-
 header {
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -19,6 +18,7 @@ main {
     background-color: rgb(136, 163, 186);
     padding: 1rem;
     margin: 1rem;
+    margin-top: 5rem;
     border-radius: .5rem;
     box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.563);
     max-width: 50rem;

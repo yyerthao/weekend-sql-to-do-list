@@ -126,7 +126,7 @@ function renderTasks(tasks) {
         <div class="buttons">
                 <button class="btn-delete">Delete</button>
 
-                <button class="btn-do ${message.status} task">Mark as ${btnText}</button>
+                <button class="btn-do ${message.status} task">${btnText}</button>
         </div>
         </td>`);
     // appending to tbody, tr created
